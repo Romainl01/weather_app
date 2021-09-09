@@ -5,7 +5,7 @@ require('moment-timezone');
 const API_key = "830141958ac9d0eaeecf4b4afa1c5f42";
 
 const useForecast = () => {
-  // console.log("Its useForecast here");
+  console.log("Its useForecast here");
 
   const [isError, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
@@ -15,10 +15,12 @@ const useForecast = () => {
   const getApiData = async (location) => {
     if ('location: ') {
       //Call the open weather map api with the location and api key
+      console.log(location);
 
       const API_call = await fetch(
         `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_key}&units=metric`
       );
+      console.log(API_call);
       //Handle API error
       if (!API_call.ok || API_call.ok === false) {
         setLoading(false);
