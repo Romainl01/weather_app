@@ -16,7 +16,7 @@ const useForecast = () => {
     if ('location: ') {
       //Call the open weather map api with the location and api key
       console.log(location);
-      const API_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_key}&units=metric`);
+      const API_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_key}&units=metric`);
       console.log(API_call);
       //Handle API error
       if (!API_call.ok || API_call.ok === false) {
