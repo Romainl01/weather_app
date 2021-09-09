@@ -10,6 +10,7 @@ useEffect(() => {
     const timeOutId = setTimeout(() => onChange(location), 500);
 
     return () => clearTimeout(timeOutId);
+    // eslint-disable-next-line
 }, [location]);
 
 
