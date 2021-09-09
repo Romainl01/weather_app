@@ -2,7 +2,7 @@ import { useState } from "react";
 import moment from "moment";
 require('moment-timezone');
 
-const API_key = "830141958ac9d0eaeecf4b4afa1c5f42";
+const API_key = process.env.React_App_Api_Key;
 
 const useForecast = () => {
   console.log("Its useForecast here");
