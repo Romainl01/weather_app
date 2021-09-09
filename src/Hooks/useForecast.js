@@ -3,7 +3,7 @@ import moment from "moment";
 import key from "./key.json"
 require('moment-timezone');
 
-const API_key = key.API_key
+const API_key = "830141958ac9d0eaeecf4b4afa1c5f42";
 
 const useForecast = () => {
   // console.log("Its useForecast here");
