@@ -6,6 +6,7 @@ const API_key = "830141958ac9d0eaeecf4b4afa1c5f42";
 
 const useForecast = () => {
   console.log("Its useForecast here");
+  console.log(API_key);
 
   const [isError, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
