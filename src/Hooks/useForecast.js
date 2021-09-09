@@ -1,6 +1,5 @@
 import { useState } from "react";
 import moment from "moment";
-import key from "./key.json"
 require('moment-timezone');
 
 const API_key = "830141958ac9d0eaeecf4b4afa1c5f42";
