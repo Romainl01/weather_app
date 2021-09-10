@@ -5,20 +5,21 @@ require('moment-timezone');
 const API_key = process.env.React_App_Api_Key;
 
 const useForecast = () => {
-  console.log("Its useForecast here");
+  // console.log("Its useForecast here");
 
   const [isError, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [forecast, setForecast] = useState(null);
+  const [locationAPI, setLocationAPI] = useState('');
 
   // getApiData
   const getApiData = async (location) => {
     if ('location: ') {
       //Call the open weather map api with the location and api key
-      console.log(location);
+      //console.log(location);
       const API_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_key}&units=metric`);
-      console.log(API_call);
-      //Handle API error
+      // console.log(API_call);
+      // Handle API error
       if (!API_call.ok || API_call.ok === false) {
         setLoading(false);
         const errorMessage = `There is no such location as '${location}'...
@@ -30,6 +31,12 @@ const useForecast = () => {
       }
       //Jsonify the api response
       const API_response = await API_call.json();
+
+      const city = API_response.name;
+      const country = API_response.sys.country
+      const test = `${city}, ${country}`;
+      setLocationAPI(test);
+
       const lat = API_response.coord.lat;
       const long = API_response.coord.lon;
       const API_call_2 = await fetch(
@@ -58,6 +65,7 @@ const useForecast = () => {
       return {
         /*weekday: moment.unix(goodUnix).format("dddd"),
         day: moment.unix(goodUnix).format("MMMM Do YYYY"), */
+        location: locationAPI,
         date: adjustedTime,
         temperature: Math.round(data.current.temp),
         feelsLike: Math.round(data.current.feels_like),

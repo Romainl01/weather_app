@@ -5,7 +5,10 @@ export default function ForecastCurrentDay({ forecast }) {
     <div className="h-auto box-border ">
       {/*             <span>{forecast.currentDay.weekday}</span>
             <span>{forecast.currentDay.day}</span> */}
-      <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center my-6">
+        <span className=" text-2xl font-bold">{forecast.currentDay.location}</span>
+      </div>
+      <div className="flex items-center justify-center mt-6">
         <span className=" text-xl">{forecast.currentDay.date}</span>
       </div>
       <div className="flex items-center justify-center">
@@ -14,7 +17,7 @@ export default function ForecastCurrentDay({ forecast }) {
           {forecast.currentDay.temperature}&deg;
         </span>
       </div>
-      <div className="flex items-center justify-center mb-8 mt-1">
+      <div className="flex items-center justify-center mb-8 mt-2">
         <span className="text-2xl font-sans font-bold">
           {forecast.currentDay.desc.charAt(0).toUpperCase() +
             forecast.currentDay.desc.slice(1)}
