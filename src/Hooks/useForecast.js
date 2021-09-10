@@ -33,9 +33,11 @@ const useForecast = () => {
       const API_response = await API_call.json();
 
       const city = API_response.name;
-      const country = API_response.sys.country
-      const test = `${city}, ${country}`;
-      setLocationAPI(test);
+      console.log(city);
+      const country = API_response.sys.country;
+      console.log(country);
+      const finalLocation = `${city}, ${country}`;
+      setLocationAPI(finalLocation);
       console.log(locationAPI);
       const lat = API_response.coord.lat;
       const long = API_response.coord.lon;
