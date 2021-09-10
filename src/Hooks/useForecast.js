@@ -10,7 +10,8 @@ const useForecast = () => {
   const [isError, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [forecast, setForecast] = useState(null);
-  const [locationAPI, setLocationAPI] = useState('');
+  
+  let displayLocation = '';
 
   // getApiData
   const getApiData = async (location) => {
@@ -36,10 +37,8 @@ const useForecast = () => {
       console.log(city);
       const country = API_response.sys.country;
       console.log(country);
-      const finalLocation = `${city}, ${country}`;
-      console.log(finalLocation);
-      setLocationAPI(finalLocation);
-      console.log(locationAPI);
+      displayLocation = `${city}, ${country}`;
+
 
       const lat = API_response.coord.lat;
       const long = API_response.coord.lon;
@@ -69,7 +68,7 @@ const useForecast = () => {
       return {
         /*weekday: moment.unix(goodUnix).format("dddd"),
         day: moment.unix(goodUnix).format("MMMM Do YYYY"), */
-        location: locationAPI,
+        location: displayLocation,
         date: adjustedTime,
         temperature: Math.round(data.current.temp),
         feelsLike: Math.round(data.current.feels_like),
